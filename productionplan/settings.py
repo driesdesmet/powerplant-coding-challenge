@@ -31,21 +31,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
@@ -122,7 +115,12 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# By default, Django redirects urls that do not end in slash to the same route but with an appended '/'.
-# I'm overwriting it here, because the challenge specifies that the endpoint is '/productionplan' and not
-# '/productionplan/'
+# By default, Django redirects urls that do not end in slash to the same route but
+# with an appended '/'. I'm overwriting it here, because the challenge specifies
+# that the endpoint is '/productionplan' and not '/productionplan/'
 APPEND_SLASH = False
+
+REST_FRAMEWORK = {
+
+    'UNAUTHENTICATED_USER': None,
+}
