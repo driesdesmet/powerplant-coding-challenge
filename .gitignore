@@ -162,3 +162,18 @@ cython_debug/
 # Direnv is a tool that automatically sets environment variables according to this file
 # I use it to store secrets while developing locally.
 .envrc
+
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
