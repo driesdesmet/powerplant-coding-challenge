@@ -30,6 +30,10 @@ class PowerPlantSerializer(serializers.Serializer):
     name = serializers.CharField()
     type = serializers.ChoiceField(choices=[
         "gasfired", "turbojet", "windturbine"])
+    efficiency = serializers.DecimalField(
+        min_value=0, max_value=1, decimal_places=2, max_digits=3)
+    pmin = serializers.IntegerField()
+    pmax = serializers.IntegerField()
 
 
 class PayLoadSerializer(serializers.Serializer):
