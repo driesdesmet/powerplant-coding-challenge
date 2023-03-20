@@ -79,16 +79,28 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'UserAttributeSimilarityValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'MinimumLengthValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'CommonPasswordValidator'
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        'NAME': (
+            'django.contrib.auth.password_validation.'
+            'NumericPasswordValidator'
+        ),
     },
 ]
 
@@ -115,9 +127,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# By default, Django redirects urls that do not end in slash to the same route but
-# with an appended '/'. I'm overwriting it here, because the challenge specifies
-# that the endpoint is '/productionplan' and not '/productionplan/'
+# By default, Django redirects urls that do not end in slash to the same route
+# but with an appended '/'. I'm overwriting it here, because the challenge
+# specifies that the endpoint is '/productionplan' and not '/productionplan/'
 APPEND_SLASH = False
 
 REST_FRAMEWORK = {
