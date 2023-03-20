@@ -51,3 +51,8 @@ class PayLoadSerializer(serializers.Serializer):
                 " 1 powerplant is required."
             )
         return data
+
+
+class ProductionPlanItemSerializer(serializers.Serializer):
+    name = serializers.CharField()
+    p = serializers.DecimalField(min_value=0, max_digits=20, decimal_places=1)

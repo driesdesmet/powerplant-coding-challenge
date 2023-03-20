@@ -133,6 +133,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 APPEND_SLASH = False
 
 REST_FRAMEWORK = {
-
     'UNAUTHENTICATED_USER': None,
+    'COERCE_DECIMAL_TO_STRING': False
 }

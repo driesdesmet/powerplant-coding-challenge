@@ -9,6 +9,39 @@ def test_create_productionplan_payload1_status_code(client, example_payload1):
     assert response.status_code == status.HTTP_201_CREATED
 
 
+def test_create_productionplan_payload1_schema_validation(client, example_payload1):
+    response = client.post('/productionplan', example_payload1, format='json')
+    assert response.headers['Content-Type'] == "application/json"
+
+    for item in response.json():
+        assert 'name' in item
+        assert 'p' in item
+
+
+def test_create_productionplan_payload1_load_validation1(client, example_payload1):
+    response = client.post('/productionplan', example_payload1, format='json')
+    total_power = 0
+    for item in response.json():
+        total_power += item["p"]
+    assert total_power == example_payload1["load"]
+
+
+def test_create_productionplan_payload1_load_validation2(client, example_payload2):
+    response = client.post('/productionplan', example_payload2, format='json')
+    total_power = 0
+    for item in response.json():
+        total_power += item["p"]
+    assert total_power == example_payload2["load"]
+
+
+def test_create_productionplan_payload1_load_validation(client, example_payload3):
+    response = client.post('/productionplan', example_payload3, format='json')
+    total_power = 0
+    for item in response.json():
+        total_power += item["p"]
+    assert total_power == example_payload3["load"]
+
+
 def test_create_productionplan_payload2_status_code(client, example_payload2):
     response = client.post('/productionplan', example_payload2, format='json')
     assert response.status_code == status.HTTP_201_CREATED
