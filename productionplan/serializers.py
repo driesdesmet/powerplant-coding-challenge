@@ -36,3 +36,14 @@ class PayLoadSerializer(serializers.Serializer):
     load = serializers.IntegerField(min_value=0)
     fuels = FuelsSerializer()
     powerplants = PowerPlantSerializer(many=True)
+
+    def validate(self, data):
+        """
+        Check that start is before finish.
+        """
+        if data['load'] > 0 and len(data['powerplants']) < 1:
+            raise serializers.ValidationError(
+                "If load is bigger than 0, then at least "
+                " 1 powerplant is required."
+            )
+        return data
