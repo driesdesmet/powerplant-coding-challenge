@@ -121,3 +121,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# By default, Django redirects urls that do not end in slash to the same route but with an appended '/'.
+# I'm overwriting it here, because the challenge specifies that the endpoint is '/productionplan' and not
+# '/productionplan/'
+APPEND_SLASH = False
